@@ -1,18 +1,31 @@
-<div>
-    <div style="display: flex;flex-direction: row;">
-        <img src="https://via.placeholder.com/100" alt="">
-        <h2>Sklep z softłerem</h2>
-    </div>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <img src="https://images.vexels.com/media/users/3/153149/isolated/preview/1dbe90ba2f24289a1668a0dbc8150e2e-gamepad-colored-stroke-icon-by-vexels.png" alt="logo" style="width:40px;">
+  </a>
 
-    <button routerLink="/adm_dashboard">Panel Administratora</button>
+  <!-- Links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Strona Główna</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="" routerLink="/adm_dashboard">Panel Administratora</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">O firmie</a>
+    </li>
+  </ul>
 
-    <div style="display: flex; justify-content: center;">
-        <input type="text" [(ngModel)]="this.mainService.productsRequest.name">
-        <button (click)="this.mainService.getProducts(this.mainService.productsRequest)" routerLink="/products">Szukaj Produktu</button>
+  <form class="form-inline my-2 my-lg-0">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" style="cursor: pointer;" id="cartBtn" routerLink="/cart">Koszyk: {{getCartQuanity()}}</span>
+      </div>
+      <input [(ngModel)]="this.mainService.productsRequest.name" class="form-control mr-sm-2" type="text" placeholder="Szukaj">
     </div>
-    <div>
-      <button id="cartBtn" routerLink="/cart">
-        {{getCartQuanity()}}
-      </button>
-    </div>
-</div>
+    <button (click)="this.mainService.getProducts(this.mainService.productsRequest)" routerLink="/products" class="btn btn-success">Szukaj produktu</button>
+  </form>
+
+</nav>
+
